@@ -1,3 +1,8 @@
+**Notes**
+
+This fork is meant for keeping already existing projects in working condition. Migration plans exist to remove this dependency so it is recommended to avoid it for new projects.
+
+
 **Deprecated**
 
 This project is no longer supported.
