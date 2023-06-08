@@ -41,7 +41,7 @@ setup(
     ],
     python_requires='>=3.8',
     install_requires=[
-        'django>=2.2',
+        'django>=2.2,<4.0',
         'django-parler',
         'django-treebeard',
         'aldryn-translation-tools',
