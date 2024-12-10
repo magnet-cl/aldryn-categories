@@ -27,6 +27,7 @@ setup(
         'Framework :: Django :: 2.0',
         'Framework :: Django :: 2.1',
         'Framework :: Django :: 3.0',
+        'Framework :: Django :: 4.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
@@ -41,7 +42,7 @@ setup(
     ],
     python_requires='>=3.8',
     install_requires=[
-        'django>=2.2,<4.0',
+        'django>=2.2,<5.0',
         'django-parler',
         'django-treebeard',
         'aldryn-translation-tools',
