@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.3.0b3
+==================
+* Django 4.2 support
+
 1.3.0b2
 ==================
 * Django 3.2 support
