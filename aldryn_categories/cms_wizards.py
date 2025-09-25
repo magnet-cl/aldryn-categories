@@ -11,7 +11,6 @@ from .models import Category
 
 
 class CategoryWizard(Wizard):
-
     def get_success_url(self, *args, **kwargs):
         # Since categories do not have their own urls, return None so that
         # cms knows that it should just close the wizard window (reload
@@ -26,14 +25,17 @@ class CreateCategoryForm(BaseFormMixin, TranslatableModelForm, MoveNodeForm):
 
     class Meta:
         model = Category
-        fields = ['name', 'slug', ]
+        fields = [
+            "name",
+            "slug",
+        ]
 
 
 aldryn_category_wizard = CategoryWizard(
-    title=_('New category'),
+    title=_("New category"),
     weight=290,
     form=movenodeform_factory(Category, form=CreateCategoryForm),
-    description=_('Create a new category.')
+    description=_("Create a new category."),
 )
 
 wizard_pool.register(aldryn_category_wizard)

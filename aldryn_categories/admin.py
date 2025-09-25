@@ -13,25 +13,31 @@ class CategoryAdmin(TranslatableAdmin, TreeAdmin):
     form = CategoryAdminForm
 
     fieldsets = (
-        (None, {
-            'fields': (
-                'name',
-                'slug',
-            )
-        }),
-        (' ', {
-            'fields': (
-                '_position',
-                '_ref_node_id',
-            )
-        }),
+        (
+            None,
+            {
+                "fields": (
+                    "name",
+                    "slug",
+                )
+            },
+        ),
+        (
+            " ",
+            {
+                "fields": (
+                    "_position",
+                    "_ref_node_id",
+                )
+            },
+        ),
     )
 
     def get_form(self, request, obj=None, **kwargs):
         FormClass = super(CategoryAdmin, self).get_form(request, obj, **kwargs)
         # Workaround for missing translations on treebeard
-        FormClass.base_fields['_position'].label = gettext('Position')
-        FormClass.base_fields['_ref_node_id'].label = gettext('Relative to')
+        FormClass.base_fields["_position"].label = gettext("Position")
+        FormClass.base_fields["_ref_node_id"].label = gettext("Relative to")
         return FormClass
 
 

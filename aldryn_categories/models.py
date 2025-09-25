@@ -1,10 +1,11 @@
-
 from django.db import models
 from django.utils.html import escape
 from django.utils.translation import gettext_lazy as _
 
 from aldryn_translation_tools.models import (
-    TranslatedAutoSlugifyMixin, TranslationHelperMixin)
+    TranslatedAutoSlugifyMixin,
+    TranslationHelperMixin,
+)
 from parler import appsettings
 from parler.managers import TranslatableManager, TranslatableQuerySet
 from parler.models import TranslatableModel, TranslatedFields
@@ -21,10 +22,9 @@ class CategoryManager(TranslatableManager, NS_NodeManager):
     queryset_class = CategoryQuerySet
 
     def get_queryset(self):
-        return self.queryset_class(
-            self.model,
-            using=self._db
-        ).order_by('tree_id', 'lft')
+        return self.queryset_class(self.model, using=self._db).order_by(
+            "tree_id", "lft"
+        )
 
 
 #
@@ -35,36 +35,46 @@ class CategoryManager(TranslatableManager, NS_NodeManager):
 # TODO: At some point, consider an approach like this:
 #     https://gist.github.com/GaretJax/7c7a9acc055c05c65041
 #
-class Category(TranslatedAutoSlugifyMixin, TranslationHelperMixin,
-               TranslatableModel, NS_Node):
+class Category(
+    TranslatedAutoSlugifyMixin, TranslationHelperMixin, TranslatableModel, NS_Node
+):
     """
     A category is hierarchical. The structure is implemented with django-
     treebeard's Nested Sets trees, which has the performance characteristics
     we're after, namely: fast reads at the expense of write-speed.
     """
-    slug_source_field_name = 'name'
+
+    slug_source_field_name = "name"
 
     translations = TranslatedFields(
         name=models.CharField(
-            _('name'),
+            _("name"),
             blank=False,
-            default='',
+            default="",
             max_length=255,
         ),
         slug=models.SlugField(
-            _('slug'),
+            _("slug"),
             blank=True,
-            default='',
-            help_text=_('Provide a “slug” or leave blank for an automatically '
-                        'generated one.'),
+            default="",
+            help_text=_(
+                "Provide a “slug” or leave blank for an automatically generated one."
+            ),
             max_length=255,
         ),
-        meta={'unique_together': (('language_code', 'slug', ), )}
+        meta={
+            "unique_together": (
+                (
+                    "language_code",
+                    "slug",
+                ),
+            )
+        },
     )
 
     class Meta:
-        verbose_name = _('category')
-        verbose_name_plural = _('categories')
+        verbose_name = _("category")
+        verbose_name_plural = _("categories")
 
     objects = CategoryManager()
 
@@ -78,9 +88,10 @@ class Category(TranslatedAutoSlugifyMixin, TranslationHelperMixin,
         #       Djangos implementation. So we skip it.
         self.__class__.objects.filter(pk=self.pk).delete(**kwargs)
         from parler.cache import _delete_cached_translations
+
         _delete_cached_translations(self)
         models.Model.delete(self, **kwargs)
 
     def __str__(self):
-        name = self.safe_translation_getter('name', any_language=True)
+        name = self.safe_translation_getter("name", any_language=True)
         return escape(name)

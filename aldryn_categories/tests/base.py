@@ -1,5 +1,3 @@
-
-
 import random
 import string
 
@@ -24,14 +22,14 @@ class CategoryTestCaseMixin(object):
         return node.__class__.objects.get(id=node.id)
 
     @classmethod
-    def rand_str(cls, prefix=u'', length=23, chars=string.ascii_letters):
-        return prefix + u''.join(random.choice(chars) for _ in range(length))
+    def rand_str(cls, prefix="", length=23, chars=string.ascii_letters):
+        return prefix + "".join(random.choice(chars) for _ in range(length))
 
     @classmethod
     def create_user(cls):
         return User.objects.create(
-            username=cls.rand_str(), first_name=cls.rand_str(),
-            last_name=cls.rand_str())
+            username=cls.rand_str(), first_name=cls.rand_str(), last_name=cls.rand_str()
+        )
 
     @staticmethod
     def get_request(language=None):

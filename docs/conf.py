@@ -30,20 +30,20 @@ import os
 extensions = []
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['templates']
+templates_path = ["templates"]
 
 # The suffix of source filenames.
-source_suffix = '.rst'
+source_suffix = ".rst"
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # General information about the project.
-project = u'Aldryn Categories'
-copyright = u'2015, Divio AG'
+project = "Aldryn Categories"
+copyright = "2015, Divio AG"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -51,6 +51,7 @@ copyright = u'2015, Divio AG'
 #
 # The short X.Y version.
 from aldryn_categories import __version__ as version  # NOQA
+
 # The short X.Y version.
 version = version
 # The full version, including alpha/beta/rc tags.
@@ -68,7 +69,7 @@ release = version
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['build', 'env']
+exclude_patterns = ["build", "env"]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -86,7 +87,7 @@ exclude_patterns = ['build', 'env']
 # show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -100,11 +101,12 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 # on_rtd is whether we are on readthedocs.org
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+on_rtd = os.environ.get("READTHEDOCS", None) == "True"
 
 if not on_rtd:  # only import and set the theme if we're building docs locally
     import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
+
+    html_theme = "sphinx_rtd_theme"
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
@@ -138,7 +140,7 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['static']
+html_static_path = ["static"]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -187,7 +189,7 @@ html_static_path = ['static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'AldrynCategoriesdoc'
+htmlhelp_basename = "AldrynCategoriesdoc"
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -195,10 +197,8 @@ htmlhelp_basename = 'AldrynCategoriesdoc'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     # 'papersize': 'a4paper',
-
     # The font size ('10pt', '11pt' or '12pt').
     # 'pointsize': '10pt',
-
     # Additional stuff for the LaTeX preamble.
     # 'preamble': '',
 }
@@ -206,10 +206,15 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
-latex_documents = [(
-    'index', 'AldrynCategories.tex', u'Aldryn Categories Documentation',
-    u'Divio AG', 'manual'
-)]
+latex_documents = [
+    (
+        "index",
+        "AldrynCategories.tex",
+        "Aldryn Categories Documentation",
+        "Divio AG",
+        "manual",
+    )
+]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
@@ -237,8 +242,7 @@ latex_documents = [(
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'aldryncategories', u'Aldryn Categories Documentation',
-     [u'Divio AG'], 1)
+    ("index", "aldryncategories", "Aldryn Categories Documentation", ["Divio AG"], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -250,11 +254,17 @@ man_pages = [
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
-texinfo_documents = [(
-    'index', 'AldrynCategories', u'Aldryn Categories Documentation',
-    u'Divio AG', 'AldrynCategories', 'One line description of project.',
-    'Miscellaneous'
-)]
+texinfo_documents = [
+    (
+        "index",
+        "AldrynCategories",
+        "Aldryn Categories Documentation",
+        "Divio AG",
+        "AldrynCategories",
+        "One line description of project.",
+        "Miscellaneous",
+    )
+]
 
 # Documents to append as an appendix to all manuals.
 # texinfo_appendices = []

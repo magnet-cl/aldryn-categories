@@ -1,5 +1,4 @@
+__version__ = "1.3.0b3"
 
-__version__ = '1.3.0b3'
 
-
-default_app_config = 'aldryn_categories.apps.AldrynCategories'
+default_app_config = "aldryn_categories.apps.AldrynCategories"

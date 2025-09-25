@@ -1,5 +1,3 @@
-
-
 from django.test import TransactionTestCase
 
 from .base import CategoryTestCaseMixin
@@ -7,12 +5,12 @@ from ..models import Category
 
 
 class AdminTest(CategoryTestCaseMixin, TransactionTestCase):
-
     def test_admin_owner_default(self):
         """
         Test that the ChangeForm contains Treebeard's MoveNodeForm
         """
         from django.contrib import admin
+
         admin.autodiscover()
 
         user = self.create_user()
@@ -27,9 +25,9 @@ class AdminTest(CategoryTestCaseMixin, TransactionTestCase):
 
         admin_inst = admin.site._registry[Category]
 
-        request = self.get_request('en')
+        request = self.get_request("en")
         request.user = user
-        request.META['HTTP_HOST'] = 'example.com'
+        request.META["HTTP_HOST"] = "example.com"
         response = admin_inst.add_view(request)
         option = '<option value="first-child">First child of</option>'
         self.assertContains(response, option)

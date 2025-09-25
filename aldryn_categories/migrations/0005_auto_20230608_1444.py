@@ -6,15 +6,20 @@ import parler.fields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('aldryn_categories', '0004_auto_20150623_0859'),
+        ("aldryn_categories", "0004_auto_20150623_0859"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='categorytranslation',
-            name='master',
-            field=parler.fields.TranslationsForeignKey(editable=False, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='translations', to='aldryn_categories.category'),
+            model_name="categorytranslation",
+            name="master",
+            field=parler.fields.TranslationsForeignKey(
+                editable=False,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="translations",
+                to="aldryn_categories.category",
+            ),
         ),
     ]

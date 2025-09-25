@@ -1,4 +1,3 @@
-
 import six
 
 from django.test import TestCase, TransactionTestCase
@@ -51,9 +50,9 @@ class TestCategories(CategoryTestCaseMixin, TransactionTestCase):
         try:
             root.delete()
         except TypeError:
-            self.fail('Deleting a node throws a TypeError.')
+            self.fail("Deleting a node throws a TypeError.")
         except Exception:
-            self.fail('Deleting a node throws an exception.')
+            self.fail("Deleting a node throws an exception.")
         self.assertNotIn(child1, Category.objects.all())
 
     def test_non_ascii_slug_generation(self):
@@ -115,7 +114,7 @@ class TestCategoryTrees(CategoryTestCaseMixin, TestCase):
         b = a.add_child(name="B")
         c = b.add_child(name="C")
         self.assertIn(c, a.get_descendants())
-        d = b.add_child(name='D')
+        d = b.add_child(name="D")
         b = self.reload(b)
         self.assertIn(d, b.get_descendants())
 
@@ -125,7 +124,7 @@ class TestCategoryTrees(CategoryTestCaseMixin, TestCase):
         c = b.add_child(name="C")
         self.assertIn(a, b.get_ancestors())
         self.assertIn(a, c.get_ancestors())
-        d = b.add_child(name='D')
+        d = b.add_child(name="D")
         self.assertIn(a, d.get_ancestors())
 
     def test_move_category(self):
@@ -148,9 +147,9 @@ class TestCategoryParler(CategoryTestCaseMixin, TestCase):
     def test_add_translations(self):
         values = [
             # language code, name, slug
-            ('en', "Cheese Omelette", "cheese-omelette"),
-            ('de', "Käseomelett", "kaseomelett"),
-            ('fr', "Omelette au Fromage", "omelette-au-fromage"),
+            ("en", "Cheese Omelette", "cheese-omelette"),
+            ("de", "Käseomelett", "kaseomelett"),
+            ("fr", "Omelette au Fromage", "omelette-au-fromage"),
         ]
 
         node = None
@@ -174,9 +173,11 @@ class TestCategoryParler(CategoryTestCaseMixin, TestCase):
 
         # Now test that we gracefully handle languages where there is no
         # translation.
-        with switch_language(node, 'it'):
+        with switch_language(node, "it"):
             try:
                 node.name
             except Exception:
-                self.fail("Translating to an unavailable language should not "
-                          "result in an exception.")
+                self.fail(
+                    "Translating to an unavailable language should not "
+                    "result in an exception."
+                )
