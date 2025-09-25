@@ -40,7 +40,7 @@ setup(
         'django>=3.2,<6.0',
         'django-parler',
         'django-treebeard',
-        'aldryn-translation-tools',
+        'aldryn-translation-tools @ git+https://github.com/magnet-cl/aldryn-translation-tools.git#0.3.1-post2',
     ],
     include_package_data=True,
     zip_safe=False

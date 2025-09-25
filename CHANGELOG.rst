@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.3.0b4
+==================
+* Remove six dependencies
+* Code reformatting
+* Django 5.2 support
+
 1.3.0b3
 ==================
 * Django 4.2 support
