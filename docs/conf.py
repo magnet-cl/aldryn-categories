@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Aldryn Categories documentation build configuration file, created by
 # sphinx-quickstart on Wed Dec 10 15:42:58 2014.
