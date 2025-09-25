@@ -5,5 +5,4 @@ django-parler
 djangocms-helper
 flake8
 python-coveralls==2.4.2
-six
 tox

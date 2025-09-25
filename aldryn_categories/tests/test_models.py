@@ -1,5 +1,3 @@
-import six
-
 from django.test import TestCase, TransactionTestCase
 from django.utils import translation
 
@@ -40,7 +38,7 @@ class TestCategories(CategoryTestCaseMixin, TransactionTestCase):
         escaped = "&lt;script&gt;alert(&#39;hi&#39;);&lt;/script&gt;"
         root = Category.add_root(name=malicious)
         root.save()
-        self.assertEqual(six.u(str(root)), escaped)
+        self.assertEqual(str(root), escaped)
 
     def test_delete(self):
         root = Category.add_root(name="test")
